@@ -7,7 +7,7 @@ public class VolatilePerson {
 
     public volatile String name;
     public volatile int age;
-    public int idcard;
+    public volatile int idcard;
 
     public volatile boolean state;
     public String getName() {

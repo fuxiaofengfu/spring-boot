@@ -9,7 +9,7 @@ public class VoatitleThread extends Thread {
 
     private int threadNum;
     ThreadLocal<VolatilePerson> vp = new ThreadLocal<VolatilePerson>();
-    private CountDownLatch countDownLatch;
+    private volatile CountDownLatch countDownLatch;
     @Override
     public void run() {
         try {
@@ -30,7 +30,7 @@ public class VoatitleThread extends Thread {
             vp.set(volatilePerson);
             System.out.println(this.getName());
         }finally{
-            //System.out.println("subthread.."+countDownLatch.getCount());
+            System.out.println("subthread.."+countDownLatch.getCount());
             countDownLatch.countDown();
         }
     }
